@@ -1,0 +1,18 @@
+/**
+ * Read an encrypted table in MySQL using AES_Decrypt and CakePHP 2.x query function.
+ * @param int $id - Id of the record being read.
+ * @param str $key - The encryption key needed to decrypt the info
+ * @return array - The decrypted record
+ */
+
+public function readEncryptedTable($id=null, $key=null){
+			$query = "SELECT `id`, `message_date`,
+			AES_DECRYPT(`encrypted_info`,'".$key."') AS unencrypted,
+			AES_DECRYPT(`last_name`,'".$key."') AS last_name,
+			AES_DECRYPT(`first_name`,'".$key."') AS first_name,
+			FROM `encrypted_table` AS EncryptedTable
+			WHERE `id` = ".$id;
+
+			$theInfo = $this->query($query);
+			return $theInfo;
+		}

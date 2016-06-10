@@ -1,2 +1,2 @@
 # CodeSamples
-Examples code from past usage
+Example code from past usage

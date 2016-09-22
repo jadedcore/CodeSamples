@@ -1,0 +1,16 @@
+The default cake_model cache is stored with information about the models.  When accessing the cache through PHP
+apc_fetch($key), you need to create the whole key as follows. If accessing through the wrapper functions in CakePHP
+Cache::read($key), you leave off the prefix information which Cake will prepend on it's own.
+
+PREFIX INFO: (USER DEFINED CACHE PREFIX)_cake_model_
+ALL KEYS: (DATASOURCE NAME)_(DATABASE NAME)_
+
+LIST OF TABLES: _list
+TABLE SCHEMA: _(TABLE NAME)
+
+Extra Info:
+
+Cache::configured() - array of all configured caches.
+ConnectionManager::getDataSource(dsName) - Data Source Object
+
+$dsObject->config = configuration information for the datasource
